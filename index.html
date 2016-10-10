@@ -2,12 +2,16 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Hello, World! - A-Frame</title>
-    <meta name="description" content="Hello, World! - A-Frame">
+    <title>Galaxy Destroyer</title>
+    <meta name="description" content="Galaxy Destroyer">
+    <link rel="stylesheet" type="text/css" href="main.css">
+
     <script src="aframe.min.js"></script>
     <script src="main.js"></script>
 </head>
 <body>
+
+<div class="title">GALAXY DESTROYER</div>
 
 <audio id="audio" src="boom.mp3"></audio>
 <audio id="audio-2" loop autoplay src="space.mp3"></audio>
@@ -17,8 +21,12 @@
         <img id="sky" src="img/background.jpg">
     </a-assets>
 
+    <a-entity>
+        <a-image src="img/space.dae"></a-image>
+    </a-entity>
+
     <a-entity id="explosion" visible="false">
-        <a-image src="img/explosion-2.png" width="5" height="2"></a-image>
+        <a-image src="img/explosion.png"></a-image>
         <a-animation begin="BANG" attribute="scale" dur="400" to="2 2 2" repeat="0"></a-animation>
         <a-animation begin="BANG" delay="400" attribute="scale" dur="150" from="2 2 2" to="0 0 0" repeat="0"></a-animation>
     </a-entity>
