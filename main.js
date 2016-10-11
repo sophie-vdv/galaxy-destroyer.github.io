@@ -1,4 +1,4 @@
-// Component to change to random color on click.
+
 AFRAME.registerComponent('cursor-destroy', {
     init: function () {
         var explosion_image = document.getElementById('explosion');

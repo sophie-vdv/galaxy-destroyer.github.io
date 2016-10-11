@@ -5,9 +5,9 @@
     <title>Galaxy Destroyer</title>
     <meta name="description" content="Galaxy Destroyer">
     <link rel="stylesheet" type="text/css" href="main.css">
-
     <script src="aframe.min.js"></script>
     <script src="main.js"></script>
+    <script src="https://rawgit.com/ngokevin/aframe-look-at-component/master/dist/aframe-look-at-component.min.js"></script>
 </head>
 <body>
 
@@ -25,10 +25,11 @@
         <a-image src="img/space.dae"></a-image>
     </a-entity>
 
-    <a-entity id="explosion" visible="false">
+    <a-entity id="explosion" visible="false" look-at="[camera]">
         <a-image src="img/explosion.png"></a-image>
-        <a-animation begin="BANG" attribute="scale" dur="400" to="2 2 2" repeat="0"></a-animation>
-        <a-animation begin="BANG" delay="400" attribute="scale" dur="150" from="2 2 2" to="0 0 0" repeat="0"></a-animation>
+        <a-animation begin="BANG" attribute="scale" dur="300" to="2 2 2" repeat="0"></a-animation>
+        <a-animation begin="BANG" delay="300" attribute="scale" dur="100" from="2 2 2" to="0 0 0"
+                     repeat="0"></a-animation>
     </a-entity>
 
     <a-sphere cursor-destroy position="-20 1.25 -10" radius="1.25" src="img/venus-4.jpg">
@@ -71,16 +72,31 @@
         <a-animation begin="click" attribute="visible" dur="5000" to="false" repeat="indefinite"></a-animation>
     </a-sphere>
 
-    <a-sphere cursor-destroy position="30 2 -10" radius="1.25" src="img/venus-6.jpg">
+    <a-sphere cursor-destroy position="0 -15 -10" radius="1.25" src="img/venus.jpg">
+        <a-animation attribute="rotation" dur="25000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
+        <a-animation begin="click" attribute="visible" dur="5000" to="false" repeat="indefinite"></a-animation>
+    </a-sphere>
+
+    <a-sphere cursor-destroy position="-2 2 -20" radius="1.25" src="img/venus-3.jpg">
+        <a-animation attribute="rotation" dur="25000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
+        <a-animation begin="click" attribute="visible" dur="5000" to="false" repeat="indefinite"></a-animation>
+    </a-sphere>
+
+    <a-sphere cursor-destroy position="-20 15 -10" radius="1.25" src="img/venus-2.jpg">
+        <a-animation attribute="rotation" dur="30000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
+        <a-animation begin="click" attribute="visible" dur="5000" to="false" repeat="indefinite"></a-animation>
+    </a-sphere>
+
+    <a-sphere cursor-destroy position="10 -5 -10" radius="1.25" src="img/venus-6.jpg">
         <a-animation attribute="rotation" dur="25000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
         <a-animation begin="click" attribute="visible" dur="5000" to="false" repeat="indefinite"></a-animation>
     </a-sphere>
 
     <a-sky src="#sky"></a-sky>
 
-    <a-camera position="0 1.8 0">
-        <a-cursor>
-            <a-image height="0.5" width="0.5" src="img/target.png"></a-image>
+    <a-camera position="0 1.8 0" look-controls>
+        <a-cursor color="#00ff00" height="50" geometry="primitive: circle; radius: 0.02;">
+            <a-image height="0.5" width="0.5" src="img/target-2.png"></a-image>
         </a-cursor>
     </a-camera>
 
