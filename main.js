@@ -20,6 +20,10 @@ AFRAME.registerComponent('cursor-destroy', {
             numPlanet--;
 
             document.getElementById("remaining").innerHTML = numPlanet;
+
+            if(numPlanet === 0){
+                document.getElementById("win-message").style.display = 'block';
+            }
         });
     }
 });
@@ -35,4 +39,5 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         timePeriodInMs);
 });
+
 
