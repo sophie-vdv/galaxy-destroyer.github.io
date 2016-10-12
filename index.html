@@ -5,25 +5,52 @@
     <title>Galaxy Destroyer</title>
     <meta name="description" content="Galaxy Destroyer">
     <link rel="stylesheet" type="text/css" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+
     <script src="aframe.min.js"></script>
     <script src="main.js"></script>
     <script src="https://rawgit.com/ngokevin/aframe-look-at-component/master/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.min.js"></script>
 </head>
 <body>
 
 <div class="title">GALAXY DESTROYER</div>
+<div class="score">
+    <img class="planet-img" src="img/world.png" alt="#">
+    <div id="remaining">10</div>
+    <div id="divider">-</div>
+    <div id="total"></div>
+</div>
+
+<div id="wasd">
+    <img class="wasd-img" src="img/wasd.png" alt="#">
+    <div>Use this to explore the galaxy!</div>
+</div>
+
 
 <audio id="audio" src="boom.mp3"></audio>
 <audio id="audio-2" loop autoplay src="space.mp3"></audio>
 
-<a-scene>
+<a-scene inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
+
     <a-assets>
         <img id="sky" src="img/background.jpg">
+        <img id="venus" src="img/venus.jpg">
+        <img id="venus-2" src="img/venus-2.jpg">
+        <img id="venus-3" src="img/venus-3.jpg">
+        <img id="venus-4" src="img/venus-4.jpg">
+        <img id="venus-5" src="img/venus-5.jpg">
+        <img id="venus-6" src="img/venus-6.jpg">
+        <img id="venus-7" src="img/venus-7.jpg">
+        <img id="venus-8" src="img/venus-8.jpg">
+        <img id="venus-9" src="img/venus-9.jpg">
+        <img id="bullock" src="img/Astronaut.dae">
     </a-assets>
 
-    <a-entity>
-        <a-image src="img/space.dae"></a-image>
-    </a-entity>
+    <a-collada-model position="20 0 -10" material="shader: flat; color: #ffffff;" src="#bullock"
+                     animation="property: position; dir: alternate; dur: 30000; easing: easeInOutSine; loop: true; to: 2 4 -8">
+        <a-animation attribute="rotation" dur="30000" easing="linear" repeat="indefinite" to="360 360 0"></a-animation>
+    </a-collada-model>
 
     <a-entity id="explosion" visible="false" look-at="[camera]">
         <a-image src="img/explosion.png"></a-image>
@@ -32,64 +59,55 @@
                      repeat="0"></a-animation>
     </a-entity>
 
-    <a-sphere cursor-destroy position="-20 1.25 -10" radius="1.25" src="img/venus-4.jpg">
+    <a-sphere class="planet" cursor-destroy position="-20 1.25 -10" radius="1" src="#venus-4"
+              animation="property: position; dir: alternate; dur: 30000; easing: easeInOutSine; loop: true; to: 2 4 -8">
+
         <a-animation attribute="rotation" dur="30000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
-        <a-animation begin="click" attribute="visible" dur="5000" to="false" repeat="indefinite"></a-animation>
     </a-sphere>
 
-    <a-sphere cursor-destroy position="0 1.25 -10" radius="1.25" src="img/venus.jpg">
+    <a-sphere class="planet" cursor-destroy position="0 1.25 -10" radius="1.25" src="#venus"
+              animation="property: position; dir: alternate; dur: 30000; easing: easeInOutSine; loop: true; to: 10 5 -20">
         <a-animation attribute="rotation" dur="30000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
-        <a-animation begin="click" attribute="visible" dur="5000" to="false" repeat="indefinite"></a-animation>
     </a-sphere>
 
-    <a-sphere cursor-destroy position="0 2.5 0" radius="1.25" src="img/venus-2.jpg">
+    <a-sphere class="planet" cursor-destroy position="5 5 25" radius="0.5" src="#venus-3">
+        <a-animation attribute="rotation" dur="25000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
+    </a-sphere>
+
+    <a-sphere class="planet" cursor-destroy position="8 2.5 0" radius="0.6" src="#venus-7">
         <a-animation attribute="rotation" dur="30000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
-        <a-animation begin="click" attribute="visible" dur="5000" to="false" repeat="indefinite"></a-animation>
     </a-sphere>
 
-    <a-sphere cursor-destroy position="5 5 25" radius="1.25" src="img/venus-3.jpg">
+    <a-sphere class="planet" cursor-destroy position="-2 5 -2" radius="1.50" src="#venus-5">
         <a-animation attribute="rotation" dur="25000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
-        <a-animation begin="click" attribute="visible" dur="5000" to="false" repeat="indefinite"></a-animation>
     </a-sphere>
 
-    <a-sphere cursor-destroy position="8 2.5 0" radius="1.25" src="img/venus-7.jpg">
+    <a-sphere class="planet" cursor-destroy position="-2 2 -20" radius="0.95" src="#venus-3">
+        <a-animation attribute="rotation" dur="25000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
+    </a-sphere>
+
+    <a-sphere class="planet" cursor-destroy position="0 15 -10" radius="0.7" src="#venus-2">
         <a-animation attribute="rotation" dur="30000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
-        <a-animation begin="click" attribute="visible" dur="5000" to="false" repeat="indefinite"></a-animation>
     </a-sphere>
 
-    <a-sphere cursor-destroy position="-2 5 -2" radius="1.25" src="img/venus-5.jpg">
+    <a-sphere class="planet" cursor-destroy position="0 -15 -10" radius="1.05" src="#venus">
         <a-animation attribute="rotation" dur="25000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
-        <a-animation begin="click" attribute="visible" dur="5000" to="false" repeat="indefinite"></a-animation>
     </a-sphere>
 
-    <a-sphere cursor-destroy position="-2 2 -20" radius="1.25" src="img/venus-3.jpg">
-        <a-animation attribute="rotation" dur="25000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
-        <a-animation begin="click" attribute="visible" dur="5000" to="false" repeat="indefinite"></a-animation>
-    </a-sphere>
-
-    <a-sphere cursor-destroy position="0 15 -10" radius="1.25" src="img/venus-2.jpg">
+    <a-sphere class="planet" cursor-destroy position="6.45 0.02 24.25" radius="1.10" src="#venus-2">
         <a-animation attribute="rotation" dur="30000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
-        <a-animation begin="click" attribute="visible" dur="5000" to="false" repeat="indefinite"></a-animation>
     </a-sphere>
 
-    <a-sphere cursor-destroy position="0 -15 -10" radius="1.25" src="img/venus.jpg">
+    <a-sphere class="planet" cursor-destroy position="10 -5 -10" radius="1.25" src="#venus-6">
         <a-animation attribute="rotation" dur="25000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
-        <a-animation begin="click" attribute="visible" dur="5000" to="false" repeat="indefinite"></a-animation>
     </a-sphere>
 
-    <a-sphere cursor-destroy position="-2 2 -20" radius="1.25" src="img/venus-3.jpg">
-        <a-animation attribute="rotation" dur="25000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
-        <a-animation begin="click" attribute="visible" dur="5000" to="false" repeat="indefinite"></a-animation>
-    </a-sphere>
-
-    <a-sphere cursor-destroy position="-20 15 -10" radius="1.25" src="img/venus-2.jpg">
+    <a-sphere class="planet" cursor-destroy position="1.13 -6.43 4.92" radius="0.81" src="#venus-8">
         <a-animation attribute="rotation" dur="30000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
-        <a-animation begin="click" attribute="visible" dur="5000" to="false" repeat="indefinite"></a-animation>
     </a-sphere>
 
-    <a-sphere cursor-destroy position="10 -5 -10" radius="1.25" src="img/venus-6.jpg">
-        <a-animation attribute="rotation" dur="25000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
-        <a-animation begin="click" attribute="visible" dur="5000" to="false" repeat="indefinite"></a-animation>
+    <a-sphere class="planet" cursor-destroy position="1.13 -6.43 4.92" radius="0.81" src="#venus-9">
+        <a-animation attribute="rotation" dur="30000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
     </a-sphere>
 
     <a-sky src="#sky"></a-sky>
