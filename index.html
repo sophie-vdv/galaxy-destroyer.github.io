@@ -1,136 +1,152 @@
-<!DOCTYPE html>
-<html>
-<head>
+<!DOCTYPE html> 
+<html> 
+<head> 
     <meta charset="utf-8">
-    <title>Galaxy Destroyer</title>
+      <title>Galaxy Destroyer</title> 
     <meta name="description" content="Galaxy Destroyer">
+     
     <link rel="stylesheet" type="text/css" href="main.css">
+     
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
-
+      
     <script src="aframe.min.js"></script>
+     
     <script src="main.js"></script>
+     
     <script src="https://rawgit.com/ngokevin/aframe-look-at-component/master/dist/aframe-look-at-component.min.js"></script>
+     
     <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.min.js"></script>
+     
 </head>
-<body>
-
+ 
+<body>  
 <div class="title">GALAXY DESTROYER</div>
-<div class="score">
-    <img class="planet-img" src="img/world.png" alt="#">
+ 
+<div class="score">  <img class="planet-img" src="img/world.png" alt="#"> 
     <div id="remaining">12</div>
+     
     <div id="divider">-</div>
+     
     <div id="total"></div>
+     
 </div>
-
-<div id="win-message">
-    <p>MISSION COMPLETE : <br> YOU DETROYED THE GALAXY  <br> WELL DONE!</p>
-    <a href="index.html"> PLAY AGAIN</a>
-</div>
-
-<div id="wasd">
-    <img class="wasd-img" src="img/wasd.png" alt="#">
+  
+<div id="wasd">  <img class="wasd-img" src="img/wasd.png" alt="#"> 
     <div>Use this to explore the galaxy!</div>
+     
 </div>
-
+   
 <audio id="audio" src="boom.mp3"></audio>
+ 
 <audio id="audio-2" loop autoplay src="space.mp3"></audio>
-
-<a-scene inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
-
-    <a-assets>
-        <img id="sky" src="img/background.jpg">
-        <img id="venus" src="img/venus.jpg">
-        <img id="venus-2" src="img/venus-2.jpg">
-        <img id="venus-3" src="img/venus-3.jpg">
-        <img id="venus-4" src="img/venus-4.jpg">
-        <img id="venus-5" src="img/venus-5.jpg">
-        <img id="venus-6" src="img/venus-6.jpg">
-        <img id="venus-7" src="img/venus-7.jpg">
-        <img id="venus-8" src="img/venus-8.jpg">
-        <img id="venus-9" src="img/venus-9.jpg">
-        <img id="bullock" src="img/Astronaut.dae">
+  
+<a-scene inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">  
+    <a-assets>  <img id="sky" src="img/background.jpg">  <img id="venus" src="img/venus.jpg">  <img id="venus-2"
+                                                                                                    src="img/venus-2.jpg"> 
+        <img id="venus-3" src="img/venus-3.jpg">  <img id="venus-4" src="img/venus-4.jpg">  <img id="venus-5"
+                                                                                                 src="img/venus-5.jpg"> 
+        <img id="venus-6" src="img/venus-6.jpg">  <img id="venus-7" src="img/venus-7.jpg">  <img id="venus-8"
+                                                                                                 src="img/venus-8.jpg"> 
+        <img id="venus-9" src="img/venus-9.jpg"> 
     </a-assets>
-
-    <a-collada-model position="20 0 -10" material="shader: flat; color: #ffffff;" src="#bullock"
-                     animation="property: position; dir: alternate; dur: 180000; easing: easeInOutSine; loop: true; to: 10 8 -10">
-        <a-animation attribute="rotation" dur="30000" easing="linear" repeat="indefinite" to="360 360 0"></a-animation>
-    </a-collada-model>
-
-    <a-entity id="explosion" visible="false" look-at="[camera]">
-        <a-image src="img/explosion.png"></a-image>
-        <a-animation begin="BANG" attribute="scale" dur="300" to="2 2 2" repeat="0"></a-animation>
-        <a-animation begin="BANG" delay="300" attribute="scale" dur="100" from="2 2 2" to="0 0 0"
-                     repeat="0"></a-animation>
+      
+    <a-entity scale="-10 -10 -10"> 
+        <a-collada-model position="20 0 -10" material="shader: flat; color: #ffffff;" src="img/Astronaut.dae"  
+                         animation="property: position; dir: alternate; dur: 180000; easing: easeInOutSine; loop: true; to: 2 4 12">
+             
+            <a-animation attribute="rotation" dur="80000" easing="linear" repeat="indefinite"  
+                         to="360 360 0"></a-animation>
+             
+        </a-collada-model>
+         
     </a-entity>
-
-    <a-sphere class="planet" cursor-destroy position="-20 1.25 -10" radius="1" src="#venus-4"
-              animation="property: position; dir: alternate; dur: 180000; easing: easeInOutSine; loop: true; to: 2 4 -8">
-
+      
+    <a-entity id="explosion" visible="false" look-at="[camera]"> 
+        <a-image src="img/explosion.png"></a-image>
+         
+        <a-animation begin="BANG" attribute="scale" dur="300" to="2 2 2" repeat="0"></a-animation>
+         
+        <a-animation begin="BANG" delay="300" attribute="scale" dur="100" from="2 2 2" to="0 0 0"  
+                     repeat="0"></a-animation>
+         
+    </a-entity>
+      
+    <a-sphere class="planet" cursor-destroy position="-20 1.25 -10" radius="1" src="#venus-4"  
+              animation="property: position; dir: alternate; dur: 80000; easing: easeInOutSine; loop: true; to: 2 4 -8">
+          
         <a-animation attribute="rotation" dur="30000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
+         
     </a-sphere>
-
-    <a-sphere class="planet" cursor-destroy position="0 1.25 -10" radius="1.25" src="#venus"
-              animation="property: position; dir: alternate; dur: 180000; easing: easeInOutSine; loop: true; to: 10 5 -20">
+      
+    <a-sphere class="planet" cursor-destroy position="0 1.25 -10" radius="1.25" src="#venus"  
+              animation="property: position; dir: alternate; dur: 100000; easing: easeInOutSine; loop: true; to: 10 5 -20">
+         
         <a-animation attribute="rotation" dur="30000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
+         
     </a-sphere>
-
-    <a-sphere class="planet" cursor-destroy position="5 5 25" radius="0.5" src="#venus-3">
+      
+    <a-sphere class="planet" cursor-destroy position="5 5 25" radius="0.5" src="#venus-3"> 
         <a-animation attribute="rotation" dur="25000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
+         
     </a-sphere>
-
-    <a-sphere class="planet" cursor-destroy position="8 2.5 0" radius="0.6" src="#venus-7"
-              animation="property: position; dir: alternate; dur: 180000; easing: easeInOutSine; loop: true; to: -15 2.5 0">
+      
+    <a-sphere class="planet" cursor-destroy position="8 2.5 0" radius="0.6" src="#venus-7"> 
         <a-animation attribute="rotation" dur="30000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
+         
     </a-sphere>
-
-    <a-sphere class="planet" cursor-destroy position="-2 5 -2" radius="1.50" src="#venus-5">
+      
+    <a-sphere class="planet" cursor-destroy position="-2 5 -2" radius="1.50" src="#venus-5"> 
         <a-animation attribute="rotation" dur="25000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
+         
     </a-sphere>
-
-    <a-sphere class="planet" cursor-destroy position="-2 2 -20" radius="0.95" src="#venus-3"
-              animation="property: position; dir: alternate; dur: 180000; easing: easeInOutSine; loop: true; to: 12 -4 -2">
+      
+    <a-sphere class="planet" cursor-destroy position="-2 2 -20" radius="0.95" src="#venus-3"> 
         <a-animation attribute="rotation" dur="25000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
+         
     </a-sphere>
-
-    <a-sphere class="planet" cursor-destroy position="0 25 -10" radius="0.7" src="#venus-2"
-              animation="property: position; dir: alternate; dur: 180000; easing: easeInOutSine; loop: true; to: 4 6 -10">
+      
+    <a-sphere class="planet" cursor-destroy position="0 15 -10" radius="0.7" src="#venus-2"> 
         <a-animation attribute="rotation" dur="30000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
+         
     </a-sphere>
-
-    <a-sphere class="planet" cursor-destroy position="0 -15 -10" radius="1.05" src="#venus">
+      
+    <a-sphere class="planet" cursor-destroy position="0 -15 -10" radius="1.05" src="#venus"> 
         <a-animation attribute="rotation" dur="25000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
+         
     </a-sphere>
-
-    <a-sphere class="planet" cursor-destroy position="6.45 0.02 24.25" radius="1.10" src="#venus-2"
-              animation="property: position; dir: alternate; dur: 180000; easing: easeInOutSine; loop: true; to: 4 0.1 14">
+      
+    <a-sphere class="planet" cursor-destroy position="6.45 0.02 24.25" radius="1.10" src="#venus-2"> 
         <a-animation attribute="rotation" dur="30000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
+         
     </a-sphere>
-
-    <a-sphere class="planet" cursor-destroy position="10 -5 -10" radius="1.25" src="#venus-6">
+      
+    <a-sphere class="planet" cursor-destroy position="10 -5 -10" radius="1.25" src="#venus-6"> 
         <a-animation attribute="rotation" dur="25000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
+         
     </a-sphere>
-
-    <a-sphere class="planet" cursor-destroy position="1.13 -6.43 4.92" radius="0.81" src="#venus-8"
-              animation="property: position; dir: alternate; dur: 180000; easing: easeInOutSine; loop: true; to: 2 -8 5.64">
+      
+    <a-sphere class="planet" cursor-destroy position="1.13 6.43 4.92" radius="0.81" src="#venus-8"> 
         <a-animation attribute="rotation" dur="30000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
+         
     </a-sphere>
-
-    <a-sphere class="planet" cursor-destroy position="2.13 -2.43 5.92" radius="0.81" src="#venus-9">
+      
+    <a-sphere class="planet" cursor-destroy position="1.13 -6.43 8.92" radius="0.81" src="#venus-9"> 
         <a-animation attribute="rotation" dur="30000" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
+         
     </a-sphere>
-
+      
     <a-sky src="#sky"></a-sky>
-
-    <a-camera position="0 1.8 0" look-controls>
-        <a-cursor color="#00ff00" height="50" geometry="primitive: circle; radius: 0.02;">
+      
+    <a-camera position="0 1.8 0" look-controls> 
+        <a-cursor color="#00ff00" height="50" geometry="primitive: circle; radius: 0.02;"> 
             <a-image height="0.5" width="0.5" src="img/target-2.png"></a-image>
+             
         </a-cursor>
+         
     </a-camera>
-
+      
 </a-scene>
+ 
 </body>
-
-</html>
-
-
+  
+</html>   
