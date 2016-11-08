@@ -58,18 +58,6 @@
         <img id="venus-9" src="img/venus-9.jpg"> 
     </a-assets>
       
-    <a-entity scale="-10 -10 -10"> 
-        <a-collada-model position="20 0 -10" material="shader: flat; color: #ffffff;" src="img/Astronaut.dae"  
-                         animation="property: position; dir: alternate; dur: 180000; easing: easeInOutSine; loop: true; to: 2 4 12">
-            <a-animation attribute="rotation" dur="80000" easing="linear" repeat="indefinite"  
-                         to="360 360 0"></a-animation>
-        </a-collada-model>
-    </a-entity>
-
-
-
-    <a-entity collada-model="#asteroid"></a-entity>
-      
     <a-entity id="explosion" visible="false" look-at="[camera]"> 
         <a-image src="img/explosion.png"></a-image>
         <a-animation begin="BANG" attribute="scale" dur="300" to="2 2 2" repeat="0"></a-animation>
