@@ -23,6 +23,7 @@ AFRAME.registerComponent('cursor-destroy', {
 
             if(numPlanet === 0){
                 document.getElementById("win-message").style.display = 'block';
+                console.log('0 planet');
             }
         });
     }
