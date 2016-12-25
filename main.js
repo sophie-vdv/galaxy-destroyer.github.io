@@ -42,3 +42,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+var button = document.getElementById("wasd");
+button.addEventListener("click",function(){
+    var audio = document.getElementById("audio");
+    audio.play();
+});
+
