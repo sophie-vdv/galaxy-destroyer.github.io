@@ -29,13 +29,15 @@ AFRAME.registerComponent('cursor-destroy', {
     }
 });
 
+window.onload = function(){
+    var button = document.getElementById("wasd");
 
-var button = document.getElementById("wasd");
-
-button.onclick = function() {
-    var audio = document.getElementById("audio");
-    audio.play();
+    button.onclick = function() {
+        var audio = document.getElementById("audio");
+        audio.play();
+    };
 };
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
