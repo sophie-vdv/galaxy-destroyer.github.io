@@ -7,7 +7,7 @@ AFRAME.registerComponent('cursor-destroy', {
 
         this.el.addEventListener('click', function () {
 
-            // audio.play();
+            audio.play();
 
             var target_position = AFRAME.utils.entity.getComponentProperty(this, 'position');
             AFRAME.utils.entity.setComponentProperty(explosion_image, 'position', target_position);
@@ -33,8 +33,8 @@ window.onload = function(){
     var button = document.getElementById("wasd");
 
     button.onclick = function() {
-        var audio = document.getElementById("audio");
-        audio.play();
+        var audio2 = document.getElementById("audio-2");
+        audio2.play();
     };
 };
 
