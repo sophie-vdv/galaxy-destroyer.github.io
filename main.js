@@ -7,7 +7,7 @@ AFRAME.registerComponent('cursor-destroy', {
 
         this.el.addEventListener('click', function () {
 
-            audio.play();
+            // audio.play();
 
             var target_position = AFRAME.utils.entity.getComponentProperty(this, 'position');
             AFRAME.utils.entity.setComponentProperty(explosion_image, 'position', target_position);
@@ -29,11 +29,14 @@ AFRAME.registerComponent('cursor-destroy', {
     }
 });
 
+
 var button = document.getElementById("wasd");
-button.addEventListener("click",function(){
+
+button.onclick = function() {
     var audio = document.getElementById("audio");
     audio.play();
-});
+};
+
 
 document.addEventListener("DOMContentLoaded", function () {
     var totalPlanet = document.querySelectorAll('.planet').length;
