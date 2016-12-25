@@ -29,6 +29,12 @@ AFRAME.registerComponent('cursor-destroy', {
     }
 });
 
+var button = document.getElementById("wasd");
+button.addEventListener("click",function(){
+    var audio = document.getElementById("audio");
+    audio.play();
+});
+
 document.addEventListener("DOMContentLoaded", function () {
     var totalPlanet = document.querySelectorAll('.planet').length;
     document.getElementById("total").innerHTML = totalPlanet;
@@ -41,10 +47,4 @@ document.addEventListener("DOMContentLoaded", function () {
         timePeriodInMs);
 });
 
-
-var button = document.getElementById("wasd");
-button.addEventListener("click",function(){
-    var audio = document.getElementById("audio");
-    audio.play();
-});
 
